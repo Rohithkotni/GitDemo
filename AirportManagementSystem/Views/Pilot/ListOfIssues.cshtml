@@ -1,0 +1,39 @@
+﻿@model IEnumerable<AirportManagementSystem.Models.Help>
+@{
+    ViewBag.Title = "ListOfIssues";
+    Layout = "~/Views/Shared/_PilotLayout.cshtml";
+}
+
+<h2>ListOfIssues</h2>
+
+<table class="table">
+    <tr>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Answer)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+
+                <b style="color:green">
+                    @Html.DisplayFor(modelItem => item.Answer)
+                </b>
+
+            </td>
+            
+        </tr>
+    }
+
+</table>

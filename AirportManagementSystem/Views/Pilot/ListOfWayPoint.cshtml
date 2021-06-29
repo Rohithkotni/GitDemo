@@ -1,0 +1,59 @@
+﻿@model IEnumerable<AirportManagementSystem.Models.Waypoint>
+
+@{
+    ViewBag.Title = "ListOfWayPoint";
+}
+
+@{ Layout = "~/Views/Shared/_PilotLayout.cshtml"; }
+
+
+<h2>ListOfWayPoint</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.WaypointId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Latitude)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Longitude)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Speed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Altitude)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Latitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Longitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Speed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Altitude)
+            </td>
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { id=item.ID }) |*@
+                @Html.ActionLink("Way Point Details", "WayPointDetails", new { id = item.WaypointId })
+                @* @Html.ActionLink("Delete", "Delete", new { id=item.ID })*@
+            </td>
+        </tr>
+    }
+
+</table>

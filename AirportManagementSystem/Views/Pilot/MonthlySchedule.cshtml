@@ -1,0 +1,61 @@
+﻿@model IEnumerable<AirportManagementSystem.Models.Schedule>
+
+@{
+    ViewBag.Title = "MonthlySchedule";
+}
+
+@{ Layout = "~/Views/Shared/_PilotLayout.cshtml"; }
+
+
+<h2>MonthlySchedule</h2>
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>
+<table class="table">
+    <tr>
+        @*<th>
+            @Html.DisplayNameFor(model => model.ScheduleId)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.ScheduleDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ScheduleTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AllocatedPlaneId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AllocatedPilotId)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.ScheduleId)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.ScheduleDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ScheduleTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AllocatedPlaneId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AllocatedPilotId)
+            </td>
+            @*<td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+                </td>*@
+        </tr>
+    }
+
+</table>

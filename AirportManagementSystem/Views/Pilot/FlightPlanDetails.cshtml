@@ -1,0 +1,84 @@
+﻿@model AirportManagementSystem.Models.FlightPlan
+
+@{
+    ViewBag.Title = "FlightPlanDetails";
+}
+
+@{ Layout = "~/Views/Shared/_PilotLayout.cshtml"; }
+
+
+<h2>FlightPlanDetails</h2>
+
+<div>
+    <h4>FlightPlan</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FlightPlanId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DepartureLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepartureLocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Destination)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Destination)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EDA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EDA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ETA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ETA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AlternateAirports)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AlternateAirports)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WayPoint1)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.WayPoint1)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.WayPoint2)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.WayPoint2)
+        </dd>
+        
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Update Flight Plan", "UpdateFlightPlan", new { id = Model.FlightPlanId }) |
+    @Html.ActionLink("Back to List Of Flight Plans", "ListOfFlightPlan", null, null)
+</p>

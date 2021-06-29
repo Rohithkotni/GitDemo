@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "UpdateFlight";
+}
+@{ Layout = "~/Views/Shared/_PilotLayout.cshtml"; }
+<h2>UpdateFlight</h2>
+
+@Html.ActionLink("Update Flight Plan", "FlightPlan", "Pilot", new { @class = "btn btn-primary btn-sm" })
+
+@Html.ActionLink("Pre Flight Mode", "PreCheckList", "Pilot", new { @class = "btn btn-primary btn-sm" })
+
+@Html.ActionLink("Post Check List", "PostCheckList", "Pilot", new { @class = "btn btn-primary btn-sm" })
+
+@Html.ActionLink("List Of Hangars", "ListOfHangar", "Pilot", new { @class = "btn btn-primary btn-sm" })
+

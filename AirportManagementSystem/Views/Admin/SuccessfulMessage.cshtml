@@ -1,0 +1,12 @@
+﻿@{ ViewBag.Title = "SuccessfullyUpdated"; }
+
+@{ Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
+<br />
+<br />
+<h2>@Html.ViewBag.Message</h2>
+
+@Html.ActionLink("Back to ListOfPlanes", "Index")
+<br />
+@Html.ActionLink("Back to ListOfHangars", "ListOfHangar", "Admin", null, null)
+<br />
+@Html.ActionLink("Back to ListOfWayPoints", "ListOfWayPoint", "Admin", null, null)

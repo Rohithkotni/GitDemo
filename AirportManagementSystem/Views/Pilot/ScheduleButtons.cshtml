@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "ScheduleButtons";
+}
+@{ Layout = "~/Views/Shared/_PilotLayout.cshtml"; }
+
+
+<h2>ScheduleButtons</h2>
+
+
+@Html.ActionLink("List Based On Daily", "DailySchedule", "Pilot", new { @class = "btn btn-primary btn-lg" });
+
+@Html.ActionLink("List Based On Weekly", "WeeklySchedule", "Pilot", new { @class = "btn btn-primary btn-lg" });
+
+@Html.ActionLink("List Based On Monthly", "MonthlySchedule", "Pilot", new { @class = "btn btn-primary btn-lg" });
+
+

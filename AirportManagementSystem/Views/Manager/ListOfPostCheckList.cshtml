@@ -1,0 +1,91 @@
+﻿@model IEnumerable<AirportManagementSystem.Models.PostCheckList>
+
+@{
+    ViewBag.Title = "ListOfPostCheckList";
+}
+
+@{ Layout = "~/Views/Shared/_ManagerLayout.cshtml"; }
+
+@if (Session["user"] == null)
+{
+    <br />
+    @Html.ActionLink("Login Please", "Index", "Home")
+
+}
+else
+{
+
+    <br />
+    <br />
+
+    <h2>ListOfPostCheckList</h2>
+
+    <p>
+        @*@Html.ActionLink("Create New", "Create")*@
+    </p>
+    <table class="table">
+        <tr>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.PostCheckId)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Transponder)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WingFlaps)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CarbHeat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lights)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Trim)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mixture)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.YourPlaneId)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.PostCheckId)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Transponder)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WingFlaps)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CarbHeat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Lights)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Trim)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mixture)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.YourPlaneId)
+                </td>
+                @*<td>
+                        @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+                        @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+                    </td>*@
+            </tr>
+        }
+
+    </table>
+}

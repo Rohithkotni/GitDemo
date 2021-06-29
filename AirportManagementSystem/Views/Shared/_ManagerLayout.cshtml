@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <script type="text/javascript">
+    function preventBack() { window.history.forward() }
+    setTimeout("preventBack()", 0);
+    window.onunload = function () { null };
+    </script>
+
+</head>
+<body style="background-image: url('https://images.pexels.com/photos/257416/pexels-photo-257416.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940') ">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Manager Account", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                  
+                    <li>@Html.ActionLink("FAQ's", "ListOfIssues", "Home")</li>
+                    <li class="pull-right" style="padding-left: 800px;">
+                        @Html.ActionLink("SignOut", "Logout", "Home", null, new { @class = "nav navbar-nav navbar-right" });
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <br />
+        <br />
+        @Html.ActionLink("Back to Manager Home Page", "ManagerHomePage", "Manager",null,null)
+        <hr />
+        <footer>
+            <b>&copy; @DateTime.Now.Year - Airport Management System</b>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

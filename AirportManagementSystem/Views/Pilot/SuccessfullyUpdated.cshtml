@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "SuccessfullyUpdated";
+}
+@{ Layout = "~/Views/Shared/_PilotLayout.cshtml"; }
+<br />
+<br />
+<h2>@Html.ViewBag.Message</h2>
+
+@Html.ActionLink("Back to ListOfFlightPlan", "ListOfFlightPlan", "Pilot", null, null)<br /><br />
+
+
+@Html.ActionLink("Back to ListOfWayPoints","ListOfWayPoint","Pilot",null,null)<br /><br />
+
+@Html.ActionLink("Back to CreationOfFlightPlan","FlightPlan","Pilot",null,null)<br /><br />
+
+@Html.ActionLink("Back to ListOfPreCheckList","ListOfPreCheckList","Pilot",null,null)<br /><br />
+@Html.ActionLink("Back to ListOfPostCheckList","ListOfPostCheckList","Pilot",null,null)
+
+
+

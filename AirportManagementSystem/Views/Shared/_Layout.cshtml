@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <script type="text/javascript">
+        function preventBack() { window.history.forward() }
+        setTimeout("preventBack()", 0);
+        window.onunload = function () { null };
+    </script>
+    <br />
+
+    
+    
+    @*<marquee behavior="scroll" direction="right" scrollamount="16">
+        <p style="color:white;font-size: 30px; font-family: Cursive;">Welcome to Airport Management System <img src="~/images/try.png" width="100" height="50" alt="Natural" /></p>
+</marquee>*@
+
+   
+
+</head>
+<body style="background-image: url('https://images.pexels.com/photos/321159/pexels-photo-321159.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940') ">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @*<li>@Html.ActionLink("Admin", "Index", "Home")</li>
+        <li>@Html.ActionLink("Employee", "About", "Home")</li>*@
+                    <li>@Html.ActionLink("Help", "Help", "Home")</li>
+                    <li>
+                        @Html.ActionLink("SignUp!", "Create", "Registrations")
+                    </li>
+                    <li>@Html.ActionLink("FAQ's", "ListOfIssues", "Home")</li>
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <br/>
+            <br/>
+            <b>&copy; @DateTime.Now.Year - Airport Management System</b>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

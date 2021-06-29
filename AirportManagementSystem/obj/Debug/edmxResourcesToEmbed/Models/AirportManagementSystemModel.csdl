@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AirportManagementSystemDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AdminLogin_tbl">
+    <Key>
+      <PropertyRef Name="AdminID" />
+    </Key>
+    <Property Name="AdminID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ManagerLogin_tbl">
+    <Key>
+      <PropertyRef Name="ManagerID" />
+    </Key>
+    <Property Name="ManagerID" Type="Int32" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ManagerRegistration_tbl">
+    <Key>
+      <PropertyRef Name="ManagerID" />
+    </Key>
+    <Property Name="ManagerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DOB" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ContactNumber" Type="Int64" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ConfirmPassword" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Designation" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SecurityQuestion1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SecurityQuestion2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SecurityQuestion3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Registration_tbl" Relationship="Self.FK_ManagerRegistration_tbl_Registration_tbl" FromRole="ManagerRegistration_tbl" ToRole="Registration_tbl" />
+  </EntityType>
+  <EntityType Name="PilotLogin_tbl">
+    <Key>
+      <PropertyRef Name="PilotId" />
+    </Key>
+    <Property Name="PilotId" Type="Int32" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PilotRegistration_tbl">
+    <Key>
+      <PropertyRef Name="PilotId" />
+    </Key>
+    <Property Name="PilotId" Type="Int32" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DOB" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ContactNumber" Type="Int64" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ConfirmPassword" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Designation" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SecurityQuestion1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SecurityQuestion2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SecurityQuestion3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Registration_tbl" Relationship="Self.FK_PilotRegistration_tbl_Registration_tbl" FromRole="PilotRegistration_tbl" ToRole="Registration_tbl" />
+  </EntityType>
+  <EntityType Name="Registration_tbl">
+    <Key>
+      <PropertyRef Name="Designation" />
+    </Key>
+    <Property Name="Designation" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="ManagerRegistration_tbl" Relationship="Self.FK_ManagerRegistration_tbl_Registration_tbl" FromRole="Registration_tbl" ToRole="ManagerRegistration_tbl" />
+    <NavigationProperty Name="PilotRegistration_tbl" Relationship="Self.FK_PilotRegistration_tbl_Registration_tbl" FromRole="Registration_tbl" ToRole="PilotRegistration_tbl" />
+  </EntityType>
+  <Association Name="FK_ManagerRegistration_tbl_Registration_tbl">
+    <End Role="Registration_tbl" Type="Self.Registration_tbl" Multiplicity="1" />
+    <End Role="ManagerRegistration_tbl" Type="Self.ManagerRegistration_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Registration_tbl">
+        <PropertyRef Name="Designation" />
+      </Principal>
+      <Dependent Role="ManagerRegistration_tbl">
+        <PropertyRef Name="Designation" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PilotRegistration_tbl_Registration_tbl">
+    <End Role="Registration_tbl" Type="Self.Registration_tbl" Multiplicity="1" />
+    <End Role="PilotRegistration_tbl" Type="Self.PilotRegistration_tbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Registration_tbl">
+        <PropertyRef Name="Designation" />
+      </Principal>
+      <Dependent Role="PilotRegistration_tbl">
+        <PropertyRef Name="Designation" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AirportManagementSystemDB" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AdminLogin_tbl" EntityType="Self.AdminLogin_tbl" />
+    <EntitySet Name="ManagerLogin_tbl" EntityType="Self.ManagerLogin_tbl" />
+    <EntitySet Name="ManagerRegistration_tbl" EntityType="Self.ManagerRegistration_tbl" />
+    <EntitySet Name="PilotLogin_tbl" EntityType="Self.PilotLogin_tbl" />
+    <EntitySet Name="PilotRegistration_tbl" EntityType="Self.PilotRegistration_tbl" />
+    <EntitySet Name="Registration_tbl" EntityType="Self.Registration_tbl" />
+    <AssociationSet Name="FK_ManagerRegistration_tbl_Registration_tbl" Association="Self.FK_ManagerRegistration_tbl_Registration_tbl">
+      <End Role="Registration_tbl" EntitySet="Registration_tbl" />
+      <End Role="ManagerRegistration_tbl" EntitySet="ManagerRegistration_tbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PilotRegistration_tbl_Registration_tbl" Association="Self.FK_PilotRegistration_tbl_Registration_tbl">
+      <End Role="Registration_tbl" EntitySet="Registration_tbl" />
+      <End Role="PilotRegistration_tbl" EntitySet="PilotRegistration_tbl" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

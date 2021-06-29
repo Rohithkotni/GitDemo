@@ -1,0 +1,159 @@
+﻿@model AirportManagementSystem.Models.PreCheckList
+
+@{
+    ViewBag.Title = "PreCheckList";
+}
+
+@{ Layout = "~/Views/Shared/_PilotLayout.cshtml"; }
+
+<h2>PreCheckList</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>PreCheckList</h4>
+        <hr />
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.PreCheckId, "PreCheckId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PreCheckId, new { htmlAttributes = new { @class = "form-control", @id = "DepartureLocation" } })
+
+                @Html.ValidationMessageFor(model => model.PreCheckId, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Power, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+
+                    @Html.RadioButtonFor(model => model.Power, "Verified", new { @checked = "checked" })
+                    Verified
+                    @Html.RadioButtonFor(model => model.Power, "NotVerified")
+                    NotVerified
+                    @*@Html.ValidationMessageFor(model => model.Power, "", new { @class = "text-danger" })*@
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BatteryVoltage, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.RadioButtonFor(model => model.BatteryVoltage, "Verified")
+                    Verified
+                    @Html.RadioButtonFor(model => model.BatteryVoltage, "NotVerified", new { @checked = "checked" })
+                    NotVerified
+                    @* @Html.ValidationMessageFor(model => model.BatteryVoltage, "", new { @class = "text-danger" })*@
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BatteryCables, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.RadioButtonFor(model => model.BatteryCables, "Secured")
+                    Secured
+                    @Html.RadioButtonFor(model => model.BatteryCables, "NotSecured", new { @checked = "checked" })
+                    NotSecured
+                    @* @Html.ValidationMessageFor(model => model.BatteryCables, "", new { @class = "text-danger" })*@
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HomeAltitude, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.RadioButtonFor(model => model.HomeAltitude, "Checked", new { @checked = "checked" })
+                    Checked
+                    @Html.RadioButtonFor(model => model.HomeAltitude, "NotChecked")
+                    NotChecked
+                    @*@Html.ValidationMessageFor(model => model.HomeAltitude, "", new { @class = "text-danger" })*@
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FlightPlan, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.RadioButtonFor(model => model.FlightPlan, "Assigned")
+                    Assigned
+                    @Html.RadioButtonFor(model => model.FlightPlan, "NotAssigned", new { @checked = "checked" })
+                    NotAssigned
+                    @*@Html.ValidationMessageFor(model => model.FlightPlan, "", new { @class = "text-danger" })*@
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GPS, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.RadioButtonFor(model => model.GPS, "Connected")
+                    Connected
+                    @Html.RadioButtonFor(model => model.GPS, "Disconnected", new { @checked = "checked" })
+                    Disconnected
+                    @*@Html.ValidationMessageFor(model => model.GPS, "", new { @class = "text-danger" })*@
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Antenna, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.RadioButtonFor(model => model.Antenna, "Connected", new { @checked = "checked" })
+                    Connected
+                    @Html.RadioButtonFor(model => model.Antenna, "Disconnected")
+                    Disconnected
+                    @* @Html.ValidationMessageFor(model => model.Antenna, "", new { @class = "text-danger" })*@
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Speed, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.RadioButtonFor(model => model.Speed, "Checked", new { @checked = "checked" })
+                    Checked
+                    @Html.RadioButtonFor(model => model.Speed, "NotChecked")
+                    NotChecked
+                    @*@Html.ValidationMessageFor(model => model.Speed, "", new { @class = "text-danger" })*@
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.YourPlaneId, "YourPlaneId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.YourPlaneId, ViewBag.PlaneList as SelectList, "Select Plane Id")
+
+                @Html.ValidationMessageFor(model => model.YourPlaneId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Check" class="btn btn-success" />
+                @*@Html.ActionLink("StatusNotOk", "PostCheckList", "Pilot", new { @class= "btn btn-default" })*@
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to ListOfPreCheckList", "ListOfPreCheckList", "Pilot", null, null)
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

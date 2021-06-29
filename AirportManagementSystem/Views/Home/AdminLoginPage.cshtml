@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "AdminLoginPage";
+}
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@if (Session["user"] == null)
+{
+    @Html.ActionLink("Login Please", "Admin", "Home")
+
+}
+else
+{
+
+    <h2>Welcome @Session["user"]</h2>
+<br />
+<h2>AdminLoginPage</h2>
+
+@*@Html.ActionLink("Check For AnyOne had Registered For Manager/Pilot", "List", "CrudRegistration", null, null)
+
+    @Html.ActionLink("Planes", "Index", "AdminPlane", null, null);*@
+
+
+@Html.ActionLink("Check For AnyOne had Registered For Manager/Pilot", "List", "CrudRegistration", null, new { @class = "btn btn-primary btn-lg" })
+<br />
+<br />
+
+@Html.ActionLink("Add Planes", "Create", "Admin", null, new { @class = "btn btn-primary btn-lg" })
+
+@Html.ActionLink("Schedule Work to Pilot", "CreateSchedule", "Admin", null, new { @class = "btn btn-primary btn-lg" })
+
+@Html.ActionLink("Add Hangars", "CreateHangars", "Admin", null, new { @class = "btn btn-primary btn-lg" })
+
+@Html.ActionLink("List Of WayPoint", "ListOfWayPoint", "Admin", null, new { @class = "btn btn-primary btn-lg" })
+
+@Html.ActionLink("Reports", "Reports", "Admin", null, new { @class = "btn btn-primary btn-lg" })
+}

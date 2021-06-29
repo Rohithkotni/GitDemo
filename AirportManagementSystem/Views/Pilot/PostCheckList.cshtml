@@ -1,0 +1,126 @@
+﻿@model AirportManagementSystem.Models.PostCheckList
+
+@{
+    ViewBag.Title = "PostCheckList";
+}
+
+@{ Layout = "~/Views/Shared/_PilotLayout.cshtml"; }
+
+<h2>PostCheckList</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>PostCheckList</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.PostCheckId, "PostCheckId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PostCheckId, new { htmlAttributes = new { @class = "form-control", @id = "DepartureLocation" } })
+
+                @Html.ValidationMessageFor(model => model.PostCheckId, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Transponder, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.RadioButtonFor(model => model.Transponder, "Verified", new { @checked = "checked" })
+                    Verified
+                    @Html.RadioButtonFor(model => model.Transponder, "NotVerified")
+                    NotVerified
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.WingFlaps, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.RadioButtonFor(model => model.WingFlaps, "Checked", new { @checked = "checked" })
+                    Checked
+                    @Html.RadioButtonFor(model => model.WingFlaps, "NotChecked")
+                    NotChecked
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CarbHeat, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.RadioButtonFor(model => model.CarbHeat, "Secured")
+                    Secured
+                    @Html.RadioButtonFor(model => model.CarbHeat, "NotSecured", new { @checked = "checked" })
+                    NotSecured
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Lights, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.RadioButtonFor(model => model.Lights, "On", new { @checked = "checked" })
+                    On
+                    @Html.RadioButtonFor(model => model.Lights, "Off")
+                    Off
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Trim, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.RadioButtonFor(model => model.Trim, "Verified")
+                    Verified
+                    @Html.RadioButtonFor(model => model.Trim, "NotVerified", new { @checked = "checked" })
+                    NotVerified
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Mixture, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.RadioButtonFor(model => model.Mixture, "Checked", new { @checked = "checked" })
+                    Checked
+                    @Html.RadioButtonFor(model => model.Mixture, "NotChecked")
+                    NotChecked
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.YourPlaneId, "YourPlaneId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.YourPlaneId, ViewBag.PlaneList as SelectList, "Select Plane Id")
+
+                @Html.ValidationMessageFor(model => model.YourPlaneId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Check" class="btn btn-success" />
+                @*@Html.ActionLink("StatusOk","PreCheckList","Pilot",new { @class= "btn btn-default" })*@
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to ListOfPostCheckList", "ListOfPostCheckList", "Pilot", null, null)
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

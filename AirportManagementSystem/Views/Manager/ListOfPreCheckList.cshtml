@@ -1,0 +1,101 @@
+﻿@model IEnumerable<AirportManagementSystem.Models.PreCheckList>
+
+@{
+    ViewBag.Title = "ListOfPreCheckList";
+}
+
+@{ Layout = "~/Views/Shared/_ManagerLayout.cshtml"; }
+<br />
+<br />
+@if (Session["user"] == null)
+{
+    <br />
+    @Html.ActionLink("Login Please", "Index", "Home")
+
+}
+else
+{
+
+    <h2>ListOfPreCheckList</h2>
+
+    <p>
+        @*@Html.ActionLink("Create New", "Create")*@
+    </p>
+    <table class="table">
+        <tr>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.PreCheckId)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Power)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BatteryVoltage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BatteryCables)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HomeAltitude)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightPlan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GPS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Antenna)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Speed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.YourPlaneId)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.PreCheckId)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Power)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BatteryVoltage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BatteryCables)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HomeAltitude)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FlightPlan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GPS)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Antenna)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Speed)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.YourPlaneId)
+                </td>
+                @*<td>
+                        @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+                        @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+                    </td>*@
+            </tr>
+        }
+
+    </table>
+}

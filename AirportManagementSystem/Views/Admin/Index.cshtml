@@ -1,0 +1,69 @@
+﻿@model IEnumerable<AirportManagementSystem.Models.Plane>
+
+@{ ViewBag.Title = "Index"; }
+
+@{ Layout = "~/Views/Shared/_AdminLayout.cshtml"; }
+@if (Session["user"] == null)
+{
+    <br />
+    <h4>@Html.ActionLink("Please Login Again", "Admin", "Home")</h4>
+
+}
+else
+{
+
+<h2>Planes</h2>
+
+                <p>
+                    @Html.ActionLink("Add Planes", "Create")
+                </p>
+                                <table class="table">
+                                    <tr>
+
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.PlaneId)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ModelNumber)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.PurchaseDate)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.LastServicedDate)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.PlaneStatus)
+                                        </th>
+                                        <th></th>
+                                    </tr>
+
+                                    @foreach (var item in Model)
+                                    {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PlaneId)
+
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ModelNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PurchaseDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastServicedDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PlaneStatus)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Update details", "Edit", new { id = item.PlaneId }, new { @class = "btn btn-info btn-sm" }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.PlaneId }, new { @class = "btn btn-info btn-sm" }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.PlaneId }, new { @class = "btn btn-danger btn-sm" })
+                        </td>
+                    </tr>
+                                    }
+
+                                </table>
+}

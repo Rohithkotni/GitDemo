@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "ManagerHomePage";
+}
+@{ Layout = "~/Views/Shared/_ManagerLayout.cshtml"; }
+<br />
+<br />
+
+@if (Session["user"] == null)
+{
+    <br/>
+    @Html.ActionLink("Login Please", "Admin", "Home")
+
+}
+else
+{
+    <h2>Manager Home Page</h2>
+
+    <h2>Welcome @Session["user"]</h2>
+
+    <br />
+
+
+    @Html.ActionLink("List Of Hangars", "ListOfHangar", "Manager", null, new { @class = "btn btn-primary btn-sm" })
+    <br />
+    <br />
+    @Html.ActionLink("Open Issues", "ListOfIssues", "Manager", null, new { @class = "btn btn-primary btn-sm" })
+
+    <br />
+    <br />
+    @Html.ActionLink("List Of Pre Check List", "ListOfPreCheckList", "Manager", null, new { @class = "btn btn-primary btn-sm" })
+    <br />
+    <br />
+    @Html.ActionLink("List Of Post Check List", "ListOfPostCheckList", "Manager", null, new { @class = "btn btn-primary btn-sm" })
+
+
+
+
+
+
+}

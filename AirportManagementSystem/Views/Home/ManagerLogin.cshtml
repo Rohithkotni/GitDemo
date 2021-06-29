@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "ManagerLogin";
+}
+
+<br />
+<h2>ManagerLogin</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<div class="form-group">
+    @Html.Label("ManagerId", htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.Editor("ManagerId", new { @class = "form-control" })
+        @Html.ValidationMessage("ManagerId", "", new { @class = "text-danger" })
+    </div>
+</div>
+
+    <div class="form-group">
+        @Html.Label("Password", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.Password("Password", null, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessage("Password", "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Login" class="btn btn-success" />
+        </div>
+    </div>
+</div>
+    <h4 style="color:red">@Html.ViewBag.Message</h4>
+    <div>
+        @Html.ActionLink("New User? Register Here!", "Create", "Registrations",null,null)
+    </div>
+}
+
+
+
+@Html.ActionLink("ForgotPassword?", "SecurityQuestion", "Home", null, null)
+
+
+<div>
+    @Html.ActionLink("Back to Home", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

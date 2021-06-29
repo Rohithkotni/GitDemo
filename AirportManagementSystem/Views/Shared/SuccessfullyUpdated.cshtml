@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "SuccessfullyUpdated";
+}
+
+@{ Layout = "~/Views/Shared/_SuccessOrError.cshtml"; }
+
+<br />
+<br />
+<h2 style="color:green">@Html.ViewBag.Message</h2>
+
+@Html.ActionLink("Back to Home", "Index", "Home", null, null)<br /><br />
+@*@Html.ActionLink("Back to Admin Home Page","AdminLoginPage","Home",null,null)*@
+

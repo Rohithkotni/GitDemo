@@ -1,0 +1,62 @@
+﻿@model AirportManagementSystem.Models.Hangar
+
+@{
+    ViewBag.Title = "HangarDetails";
+}
+
+@{ Layout = "~/Views/Shared/_ManagerLayout.cshtml"; }
+<br />
+<br />
+@if (Session["user"] == null)
+{
+    <br />
+    @Html.ActionLink("Login Please", "Index", "Home")
+
+}
+else
+{
+    <h2>HangarDetails</h2>
+
+    <div>
+
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.HangarId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ID)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.HangarSize)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HangarSize)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Status)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Status)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PlaneId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PlaneId)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("UpdateHangar", "UpdateHangar", new { id = Model.HangarId }) |
+        @Html.ActionLink("Back to ListOfHangar", "ListOfHangar")
+    </p>
+}

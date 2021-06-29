@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@ViewBag.Message
+
+<marquee behavior="scroll" direction="right" scrollamount="16">
+    <p style="color:white;font-size: 30px; font-family: Cursive;">Welcome to Airport Management System <img src="~/images/try.png" width="100" height="50" alt="Natural" /></p>
+</marquee>
+
+<br/>
+<br/>
+<div class="jumbotron jumbotron-fluid">
+    <h1>Airport Management System</h1>
+    <p class="lead">Cognizant Airlines Privated Limited.</p>
+    @Html.ActionLink("Admin Login", "Admin", "Home", new { @class = "btn btn-primary btn-lg" })
+
+    @Html.ActionLink("Manager Login", "ManagerLogin", "Home", new { @class = "btn btn-primary btn-lg" })
+    @Html.ActionLink("Pilot Login", "PilotLogin", "Home", new { @class = "btn btn-primary btn-lg" })
+
+    @*<span><a @Html.ActionLink("","","") class="btn btn-primary btn-lg">Employee Login &raquo;</a></span>*@
+
+</div>
+

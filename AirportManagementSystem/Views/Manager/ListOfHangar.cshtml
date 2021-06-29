@@ -1,0 +1,65 @@
+﻿@model IEnumerable<AirportManagementSystem.Models.Hangar>
+
+@{
+    ViewBag.Title = "ListOfHangar";
+}
+
+@{ Layout = "~/Views/Shared/_ManagerLayout.cshtml"; }
+
+@if (Session["user"] == null)
+{
+    <br />
+    @Html.ActionLink("Login Please", "Index", "Home")
+
+}
+else
+{
+    <h2>ListOfHangar</h2>
+
+    <p>
+        @*@Html.ActionLink("Create New", "Create")*@
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HangarSize)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlaneId)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HangarSize)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PlaneId)
+                </td>
+                <td>
+                    @Html.ActionLink("UpdateHangar", "UpdateHangar", new { id = item.ID }) |
+                    @Html.ActionLink("HangarDetails", "HangarDetails", new { id = item.ID })
+                    @*@Html.ActionLink("Delete", "Delete", new { id=item.ID })*@
+                </td>
+            </tr>
+        }
+
+
+
+    </table>
+}

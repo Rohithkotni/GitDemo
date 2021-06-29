@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "PilotHomePage";
+}
+@{ Layout = "~/Views/Shared/_PilotLayout.cshtml"; }
+
+@if (Session["user"] == null)
+{
+    <br/>
+    @Html.ActionLink("Login Please", "Admin", "Home")
+
+}
+else
+{
+<h2>Pilot Home Page</h2>
+
+    <h2>Welcome @Session["user"]</h2>
+
+
+    @*@Html.ActionLink("Update Flight Plan","FlightPlan","Pilot",new { @class = "btn btn-primary btn-sm" })
+
+        @Html.ActionLink("Pre Flight Mode", "PreCheckList", "Pilot", new { @class = "btn btn-primary btn-sm" })*@
+
+    @Html.ActionLink("Scheduled Planes", "ScheduledPlanes", "Pilot", new { @class = "btn btn-primary btn-sm" })
+
+    @Html.ActionLink("List Of Schedules Based On the Monthly/Weekly/Daily", "ScheduleButtons", "Pilot", new { @class = "btn btn-primary btn-sm" })
+}

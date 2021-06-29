@@ -1,0 +1,71 @@
+﻿@model IEnumerable<AirportManagementSystem.Models.Help>
+
+@{
+    ViewBag.Title = "ListOfIssues";
+}
+
+@{ Layout = "~/Views/Shared/_ManagerLayout.cshtml"; }
+
+@if (Session["user"] == null)
+{
+    <br />
+    @Html.ActionLink("Login Please", "Index", "Home")
+
+}
+else
+{
+    <h2>ListOfIssues</h2>
+
+    <p>
+
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IssueId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IssueName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Answer)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IssueName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    <b>
+                        <p style="color:green">
+                            @Html.DisplayFor(modelItem => item.Answer)
+                        </p>
+                    </b>
+
+
+                </td>
+                <td>
+                    @Html.ActionLink("Resolve Issue", "ResolveIssue", new { id = item.ID }) |
+                    @Html.ActionLink("Issue Details", "IssueDetails", new { id = item.ID })
+                    @*@Html.ActionLink("Delete", "Delete", new { id=item.ID })*@
+                </td>
+            </tr>
+        }
+
+
+    </table>
+}
+
